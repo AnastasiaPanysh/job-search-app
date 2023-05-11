@@ -1,10 +1,12 @@
 .global-wrapper {
   display: flex;
 }
+.wrapper-left {
+  width: 30%;
+}
 
 .wrapper {
-  margin: 124px;
-
+  margin-top: 124px;
   width: 315px;
   height: 360px;
   background: #ffffff;
@@ -23,24 +25,13 @@
   align-items: center;
 }
 
-.wrapper-wdth {
-  width: 240px;
-}
-
 .wrapper-flex h1 {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
+  font: 700 20px "Inter";
   line-height: 20px;
   color: #232134;
 }
 .wrapper-flex p {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
+  font: 500 14px "Inter";
   display: flex;
   align-items: center;
   color: #acadb9;
@@ -59,10 +50,8 @@
   background-repeat: no-repeat;
 }
 
-h2 {
-  font-family: "Inter";
-  font-weight: 700;
-  font-size: 16px;
+.nav-bar h2 {
+  font: 700 16px "Inter";
   line-height: 19px;
   color: #232134;
   margin: 32px auto 8px;
@@ -87,19 +76,101 @@ h2 {
 
 .wrapper-right {
   margin-top: 124px;
+  width: 70%;
+}
+.wrapper-inp {
+  display: flex;
+  /* width: 773px; */
+}
+.search {
   width: 773px;
 }
+
 .btn-search {
   font: 500 14px "Inter";
   color: #ffffff;
   text-align: center;
-  padding: 5.5px;
-  width: 80px;
+  padding: 5px;
+  width: 70px;
   height: 17px;
   background: #5e96fc;
   border-radius: 8px;
-  cursor: pointer;
-  margin-top: 128px;
   margin-left: -90px;
+  margin-top: 5px;
+  cursor: pointer;
   z-index: 1;
+}
+
+.job {
+  width: 773px;
+  height: 137px;
+  background: #ffffff;
+  border: 1px solid #eaebed;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.job-margin {
+  margin: 24px;
+}
+.h-star{
+  display: flex;
+  justify-content:space-between
+}
+
+.star{
+  background-image: url(./assets/Star\ empty.svg);
+  width: 22px;
+  height: 22px;
+  background-size: contain;
+  background-repeat: no-repeat;
+ }
+
+.job .job-margin h1 {
+  font: 600 20px "Inter";
+  color: #5e96fc;
+}
+.txt-wrapper{
+  display: flex;
+  /* width: 339px; */
+  margin-top: 12px;
+}
+
+.txt-wrapper h2 {
+  font: 600 16px "Inter";
+  color: #232134;
+  margin-right: 12px;
+}
+
+.dot {
+  background-image: url(./assets/•.svg);
+  width: 6px;
+  height: 6px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 7px;
+}
+
+.txt-wrapper p {
+  font: 400 16px "Inter";
+  color: #232134;
+  margin-left: 12px;
+}
+
+.icon-txt-wrapper {
+  display: flex;
+  margin-top: 13px;
+}
+
+.icon {
+  background-image: url(./assets/M.svg);
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+
+.icon-txt-wrapper p {
+  font: 400 16px "Inter";
+  color: #232134;
 }

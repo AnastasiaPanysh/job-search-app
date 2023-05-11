@@ -10,7 +10,7 @@ function Header() {
                 </div>
                 <div className={style['wrapper-nav']}>
                     <p className={style['search']}>Поиск Вакансий</p>
-                    <Link to={'/favorites'}>
+                    <Link to={'favorites'}>
                         <p className={style['favorites']}>Избранное</p>
                     </Link>
                 </div>
