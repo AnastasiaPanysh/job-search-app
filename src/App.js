@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
-import PreviewPage from './pages/PreviewPage';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<PreviewPage></PreviewPage>}></Route>
+      <Route path='/' element={<HomePage></HomePage>}></Route>
     </Routes>
   );
 }

@@ -1,0 +1,58 @@
+[
+    {
+      "vacancy": "JavaScript Developer",
+      "salary": "з/п от 70000 rub",
+      "workday": "Полный рабочий день",
+      "city": "Минск"
+    },
+    {
+      "vacancy": "Python Developer",
+      "salary": "з/п от 50000 rub",
+      "workday": "Полный рабочий день",
+      "city": "Гродно"
+    },
+    {
+      "vacancy": "Java Developer",
+      "salary": "з/п от 70000 rub",
+      "workday": "Полный рабочий день",
+      "city": "Брест"
+    },
+    {
+      "vacancy": "Frontend Developer",
+      "salary": "з/п от 50000 rub",
+      "workday": "Полный рабочий день",
+      "city": "Могилев"
+    },
+    {
+      "vacancy": "Data Scientist",
+      "salary": "з/п от 70000 rub",
+      "workday": "Полный рабочий день",
+      "city": "Витебск"
+    },
+    {
+      "vacancy": "UI/UX Designer",
+      "salary": "з/п от 50000 rub",
+      "workday": "Полный рабочий день",
+      "city": "Гомель"
+    },
+    {
+      "vacancy": "Software Engineer",
+      "salary": "з/п от 70000 rub",
+      "workday": "Полный рабочий день",
+      "city": "Минск"
+    },
+    {
+      "vacancy": "Full Stack Developer",
+      "salary": "з/п от 50000 rub",
+      "workday": "Полный рабочий день",
+      "city": "Гродно"
+    },
+    {
+      "vacancy": "PHP Developer",
+      "salary": "з/п от 70000 rub",
+      "workday": "Полный рабочий день",
+      "city": "Брест"
+    }
+
+  ]
+  

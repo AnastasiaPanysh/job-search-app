@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import style from './Header.module.css'
+import style from './Header.module.scss'
 function Header() {
     return (
         <div className={style['wrapper']}>
@@ -9,10 +9,12 @@ function Header() {
                     <div className={style['jobored']}>Jobored</div>
                 </div>
                 <div className={style['wrapper-nav']}>
-                    <p className={style['search']}>Поиск Вакансий</p>
-                    <Link to={'favorites'}>
-                        <p className={style['favorites']}>Избранное</p>
-                    </Link>
+                    <p>
+                        <Link to={'/'}>Поиск Вакансий</Link>
+                    </p>
+                    <p>
+                        <Link to={'/favorites'}> Избранное</Link>
+                    </p>
                 </div>
             </div>
         </div>
