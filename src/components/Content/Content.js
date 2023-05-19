@@ -74,8 +74,10 @@ function Content({ searchString }) {
   //   fetchVacancies();
   // }, []);
 
+
   useEffect(() => {
     setList(filterVacancy());
+    setCurrentPage(1); 
   }, [searchString]);
 
   return (

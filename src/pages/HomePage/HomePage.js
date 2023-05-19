@@ -14,7 +14,7 @@ function HomePage() {
             <Header />
             <div className={style['filter']}>
                 <Filters />
-                
+
                 <div className={style['content']}>
                     <Search setSearchString={setSearchString}/>
                     <Content searchString={searchString} />
