@@ -1,3 +1,0 @@
-let basket = []
-
-export { basket }

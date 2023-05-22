@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import style from './Content.module.scss';
 
-function Item({ vacancyItem, addToFavorites }) {
-  const [save, setSave] = useState(false);
+function Item({ vacancyItem }) {
+  const [isSaved, setIsSaved] = useState(false);
 
   const handleSaveToggle = () => {
-    setSave(!save);
-    addToFavorites(vacancyItem, !save);
+    setIsSaved(!isSaved);
+    addToFavorites(vacancyItem);
+  };
+
+  const addToFavorites = (vacancy) => {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const updatedFavorites = [...favorites, vacancy];
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
 
   return (
@@ -16,7 +22,7 @@ function Item({ vacancyItem, addToFavorites }) {
           <h2 className={style['vacancy-h']}>{vacancyItem.vacancy}</h2>
           <div
             onClick={handleSaveToggle}
-            className={`${style[save ? 'save' : 'nosave']}`}
+            className={`${style[isSaved ? 'save' : 'nosave']}`}
           ></div>
         </div>
 

@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { Pagination } from '@mantine/core';
 import Item from '../Content/Item';
-import storage from '../../storage/storage.json';
 
-function Favorite({ favorites, removeFromFavorites }) {
-  const pageSize = 4;
-  const totalPages = Math.ceil(favorites.length / pageSize);
+function Favorite() {
+  const pageSize = useRef(4);
+
+  const [favorites, setFavorites] = React.useState(
+    JSON.parse(localStorage.getItem('favorites')) || []
+  );
   const [currentPage, setCurrentPage] = React.useState(1);
+
+  React.useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   const getCurrentPageFavorites = () => {
     const startIndex = (currentPage - 1) * pageSize;
@@ -14,11 +20,17 @@ function Favorite({ favorites, removeFromFavorites }) {
     return favorites.slice(startIndex, endIndex);
   };
 
-  const handleRemoveFromFavorites = (vacancy) => {
-    removeFromFavorites(vacancy);
+  const addToFavorites = (vacancy) => {
+    setFavorites((prevFavorites) => [...prevFavorites, vacancy]);
   };
 
-  if (!favorites ) {
+  const removeFromFavorites = (vacancy) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((item) => item.id !== vacancy.id)
+    );
+  };
+
+  if (!favorites.length) {
     return <p>Нет сохраненных вакансий.</p>;
   }
 
@@ -29,12 +41,12 @@ function Favorite({ favorites, removeFromFavorites }) {
           key={vacancy.id}
           vacancyItem={vacancy}
           isFavorite={true}
-          addToFavorites={() => {}}
-          removeFromFavorites={handleRemoveFromFavorites}
+          addToFavorites={addToFavorites}
+          removeFromFavorites={removeFromFavorites}
         />
       ))}
       <Pagination
-        total={totalPages}
+        total={Math.ceil(favorites.length / pageSize)}
         value={currentPage}
         onChange={setCurrentPage}
         position="center"
