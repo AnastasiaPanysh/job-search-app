@@ -1,0 +1,37 @@
+.wrapper .contact {
+  display: flex;
+}
+
+.wrapper .contact .img {
+  background-image: url(./assets/заголоок\ контактные\ даные.svg);
+  width: 215px;
+  height: 155px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 10% ;
+}
+
+.wrapper .contact  .input:not(:last-child){
+margin: 4% 0;
+}
+
+.wrapper .delivery{
+    display: flex;
+
+}
+.wrapper .delivery .img {
+    background-image: url(./assets/доставка.svg);
+    width: 250px;
+    height: 135px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin:3% 10%;
+}
+.wrapper .delivery .btn {
+    background-image: url(./assets/кнопка.svg);
+    width: 235px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin:3% 10%;
+}

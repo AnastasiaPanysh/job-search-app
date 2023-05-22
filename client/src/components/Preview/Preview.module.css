@@ -1,0 +1,122 @@
+.wrapper .img-womens {
+  background-image: url(./assets/новинки.svg);
+  width: 1140px;
+  height: 502px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+
+.wrapper .price {
+  display: flex;
+}
+
+.wrapper .price .price-1099 {
+  background-image: url(./assets/1\ 099\ ₴.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 80px;
+  margin-left: 17%;
+}
+
+.wrapper .price .price-1299 {
+  background-image: url(./assets/1\ 299\ ₴.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 80px;
+  margin-left: 17%;
+}
+
+.wrapper .price .price-2499 {
+  background-image: url(./assets/2\ 499\ ₴.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 80px;
+  margin-left: 17%;
+}
+
+.wrapper .price .price-899 {
+  background-image: url(./assets/899\ ₴.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 17px;
+  width: 65px;
+  margin-left: 17%;
+}
+.wrapper .description {
+  display: grid;
+  grid-template-columns: repeat(4, 280px);
+  position: relative;
+  top: -20px;
+  margin: 5%;
+}
+
+.wrapper .description p {
+  font: 400 16px "Montserrat";
+  color: #1f1f1f;
+  width: 190px;
+  margin-left: 80px;
+}
+
+.wrapper .description p:not(:last-child) {
+  margin-left: 10%;
+}
+
+.wrapper .new-collection {
+  background-image: url(./assets/baner.svg);
+  width: 1140px;
+  height: 406px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+.wrapper .store {
+  background-image: url(./assets/booriva\ store.png);
+  width: 1000px;
+  height: 770px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+
+.wrapper .advantages {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 5%;
+} 
+
+.wrapper .section{
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.wrapper .image-1 {
+  background-image: url(./assets/Group\ 74.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 81px;
+  height: 98px;
+}
+.wrapper .image-2 {
+  background-image: url(./assets/Group\ 329.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 81px;
+  height: 98px;
+}
+.wrapper .image-3 {
+  background-image: url(./assets/Group\ 330.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 81px;
+  height: 98px;
+}
+
+.wrapper .paragraph{
+  width: 200px;
+}

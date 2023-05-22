@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper .logo {
+  background-image: url(./assets/logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 160px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.wrapper nav {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper nav p {
+  width: 20%;
+  text-align: end;
+  font: 400 16px 'Montserrat';
+  color: #000;
+  cursor: pointer;
+}

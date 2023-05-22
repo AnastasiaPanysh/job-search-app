@@ -2,20 +2,28 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Pagination } from '@mantine/core';
 import Item from './Item';
 import storage from '../../storage/storage.json';
-import axios from 'axios';
 
-function Content({ searchString }) {
-  const [list, setList] = useState(storage);
+function Content({ searchString, salaryFilter, industryFilter }) {
+  const [list, setList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSizeRef = useRef(4);
 
-  const [accessToken, setAccessToken] = useState('');
-
-  const filterVacancy = () => {
-    if (!searchString) return storage;
-    return storage.filter(({ vacancy }) =>
-      vacancy.toLowerCase().includes(searchString.toLowerCase())
-    );
+  function filterVacancy () {
+    if (!searchString && !salaryFilter && !industryFilter) return storage;
+  
+    return storage.filter(({ vacancy, salary, category }) => {
+      const lowerCaseVacancy = vacancy.toLowerCase();
+      const filterSalary = parseInt(salary.split(' ')[2]);
+      const filterValueFrom = parseInt(salaryFilter.salaryFrom);
+      const filterValueTo = parseInt(salaryFilter.salaryTo);
+  
+      return (
+        (!searchString || lowerCaseVacancy.includes(searchString.toLowerCase())) &&
+        (!salaryFilter.salaryFrom || (filterSalary && filterSalary >= filterValueFrom)) &&
+        (!salaryFilter.salaryTo || (filterSalary && filterSalary <= filterValueTo)) &&
+        (!industryFilter || category === industryFilter)
+      );
+    });
   };
 
   const paginatedList = filterVacancy().slice(
@@ -23,62 +31,10 @@ function Content({ searchString }) {
     currentPage * pageSizeRef.current
   );
 
-  // useEffect(() => {
-  //   const performAuthorization = async () => {
-  //     try {
-  //       const response = await axios.post(
-  //         'https://startup-summer-2023-proxy.onrender.com/2.0/oauth2/password',
-  //         {
-  //           login: 'sergei.stralenia@gmail.com',
-  //           password: 'paralect123',
-  //           client_id: '2356',
-  //           client_secret:
-  //             'v3.r.137440105.ffdbab114f92b821eac4e21f485343924a773131.06c3bdbb8446aeb91c35b80c42ff69eb9c457948',
-  //           hr: '0'
-  //         },
-  //         {
-  //           headers: {
-  //             'x-secret-key': 'GEU4nvd3rej*jeh.eqp',
-  //           }
-  //         }
-  //       );
-
-  //       const accessToken = response.data.access_token;
-  //       setAccessToken(accessToken);
-  //       console.log(accessToken);
-  //     } catch (error) {
-  //       console.error('Ошибка авторизации', error);
-  //     }
-  //   };
-
-  //   const fetchVacancies = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         'https://startup-summer-2023-proxy.onrender.com/2.0/vacancies',
-  //         {
-  //           headers: {
-  //             'x-secret-key': 'GEU4nvd3rej*jeh.eqp',
-  //             Authorization: `Bearer ${accessToken}`,
-  //           }
-  //         }
-  //       );
-
-  //       const vacancies = response.data.vacancies;
-  //       console.log(vacancies);
-  //     }catch (error) {
-  //       console.error('Ошибка при получении вакансий', error);
-  //     }
-  //   };
-
-  //   performAuthorization();
-  //   fetchVacancies();
-  // }, []);
-
-
   useEffect(() => {
     setList(filterVacancy());
-    setCurrentPage(1); 
-  }, [searchString]);
+    setCurrentPage(1);
+  }, [searchString, salaryFilter, industryFilter]);
 
   return (
     <div>

@@ -1,54 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './Filters.module.scss';
-import { Select, Input, Button } from '@mantine/core';
+import { Select, Button, NativeSelect } from '@mantine/core';
 import { IconChevronDown } from '@tabler/icons-react';
+import categoty from '../../storage/category.json';
 
+function Filters({ setSalaryFilter, setVacancyFilter, setIndustryFilter }) {
+  const [salaryFrom, setSalaryFrom] = useState('');
+  const [salaryTo, setSalaryTo] = useState('');
+  const [vacancy, setVacancy] = useState('');
+  const [industry, setIndustry] = useState('');
 
+  function handleApplyFilters() {
+    const filters = {
+      salaryFrom,
+      salaryTo,
+      vacancy,
+      industry
+    };
 
+    setSalaryFilter(filters);
+    setVacancyFilter(vacancy);
+    setIndustryFilter(industry);
+  }
 
-function Filters() {
-
-    return (
-
-
-        <div className={style['wrapper']}>
-
-            <div className={style['flex']}>
-                <h2>Фильтры</h2>
-                <div className={style['close']}>
-                    <p>Сбросить все</p>
-                    <div className={style['close-img']}> </div>
-                </div>
-
-            </div>
-
-            <div className={style['industry']}>
-                <h3>Отрасль</h3>
-                <Input component="select" placeholder='dfvfdbfbbf' rightSection={<IconChevronDown size={14} stroke={1.5} />}>
-                    <option>Выберете отрасль</option>
-                    <option >Информационные технологии</option>
-                </Input>
-            </div>
-
-            <div className={style['salary']}>
-                <h3>Оклад</h3>
-
-                <div className={style['selectors']}>
-                    <Select
-
-                        data={['500', '600', '700', '800', '900', '1000', '1200', '1400', '1600', '1800', '2000', '2500', '3000', '4000', '5000']}
-                        placeholder="Oт"
-                    />
-                    <Select
-
-                        data={['550', '650', '750', '850', '950', '1000', '1200', '1400', '1600', '1800', '2000', '2500', '3000', '4000', '5000']}
-                        placeholder="До"
-                    />
-                </div>
-            </div>
-
-            <Button className={style['btn']}>Применить</Button>
+  return (
+    <div className={style['wrapper']}>
+      <div className={style['flex']}>
+        <h2>Фильтры</h2>
+        <div className={style['close']}>
+          <p>Сбросить все</p>
+          <div className={style['close-img']}> </div>
         </div>
-    );
+      </div>
+
+      <div className={style['industry']}>
+        <h3>Отрасль</h3>
+
+        <NativeSelect
+          size="lg"
+          placeholder="Выберете отрасль"
+          data={categoty.map((el) => el.category)}
+          value={industry}
+          onChange={(event) => setIndustry(event.currentTarget.value)}
+          rightSection={<IconChevronDown />}
+        />
+      </div>
+
+      <div className={style['salary']}>
+        <h3>Оклад</h3>
+        <div className={style['selectors']}>
+          <Select
+            data={['30000', '40000', '50000', '60000', '70000']}
+            value={salaryFrom}
+            onChange={(value) => setSalaryFrom(value)}
+            placeholder="От"
+          />
+          <Select
+            data={['30000', '40000', '50000', '60000', '70000']}
+            value={salaryTo}
+            onChange={(value) => setSalaryTo(value)}
+            placeholder="До"
+          />
+        </div>
+      </div>
+
+      <Button className={style['btn']} onClick={handleApplyFilters}>
+        Применить
+      </Button>
+    </div>
+  );
 }
-export default Filters
+
+export default Filters;
