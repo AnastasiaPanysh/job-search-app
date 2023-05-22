@@ -16,7 +16,7 @@ React-FilterBlocks is a project focused on implementing block filtering function
 + Install dependencies: npm install
 
 ## Usage
-+ Start the development server: npm start
++ Start the development server: npm start   
 + Access the application in your browser at http://localhost:3000/
 
 ## Contributing
