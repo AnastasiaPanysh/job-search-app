@@ -1,35 +1,28 @@
-import React, { useState } from 'react';
-import Header from '../../Components/Header/Header.js';
-import Filters from '../../Components/Filters/Filters.js';
-import Content from '../../Components/Content/Content.js';
-import Search from '../../Components/Search/Search.js';
-import style from './style.module.scss';
-import category from '../../storage/category.json';
+import React, { useState, useEffect } from 'react';
+import List from '../../components/Content/List';
+import Search from '../../components/Search/Search';
+import style from './style.module.css';
+import Header from '../../components/Header/Header';
+import Filters from '../../components/Filters/Filters';
 
 function HomePage() {
   const [searchString, setSearchString] = useState('');
-  const [salaryFilter, setSalaryFilter] = useState('');
-  const [vacancyFilter, setVacancyFilter] = useState('');
-  const [industryFilter, setIndustryFilter] = useState('');
+  const [expression, setExpression] = useState({ industry: 'default', salaryFrom: '', salaryTo: '' });
+
+  useEffect(() => {
+    console.log(expression);
+  }, [expression]);
 
   return (
-    <div className={style['wrapper']}>
+    <div className={style.wrapper}>
       <Header />
-      <div className={style['filter']}>
-        <Filters
-          setSalaryFilter={setSalaryFilter}
-          setVacancyFilter={setVacancyFilter}
-          setIndustryFilter={setIndustryFilter}
-          category={category}
-        />
 
-        <div className={style['content']}>
+      <div className={style.preview}>
+        <Filters setExpression={setExpression} />
+
+        <div className={style.content}>
           <Search setSearchString={setSearchString} />
-          <Content
-            searchString={searchString}
-            salaryFilter={salaryFilter}
-            industryFilter={industryFilter}
-          />
+          <List expression={expression} searchString={searchString} />
         </div>
       </div>
     </div>

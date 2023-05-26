@@ -1,6 +1,5 @@
-
 .wrapper {
-  width: 25%;
+  width: 33%;
   background: #ffffff;
   border: 1px solid #eaebed;
   border-radius: 12px;
@@ -13,31 +12,21 @@
   justify-content: space-between;
   align-items: center;
   line-height: 20px;
+}
 
-  h2 {
-    font: 700 20px "Inter";
-    color: #232134;
-  }
+.flex h2 {
+  font: 700 20px 'Inter';
+  color: #232134;
+}
 
-  p {
-    font: 500 14px "Inter";
-    color: #acadb9;
-  }
+.flex p {
+  font: 500 14px 'Inter';
+  color: #acadb9;
+}
 
-  .close {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .close-img {
-    background-image: url(./assets/close.svg);
-    width: 16px;
-    height: 16px;
-    margin-top: 1%;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
+.flex p:hover {
+  text-decoration: underline;
+  color: #9899a0;
 }
 
 .industry,
@@ -48,14 +37,14 @@
 
 .industry h3,
 .salary h3 {
-  font: 700 16px "Inter";
+  font: 700 16px 'Inter';
   line-height: 19px;
   color: #232134;
   margin-bottom: 10px;
 }
 
 .salary .selectors {
-  height: 90px;
+  height: 120px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;

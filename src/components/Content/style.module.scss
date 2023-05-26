@@ -4,23 +4,28 @@
   border: 1px solid #eaebed;
   border-radius: 12px;
   margin: 20px 0;
-  padding: 20px;
+}
+
+.wrapper:hover {
+  border-color: #5e95fc8e;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
 }
 
 .content {
-  height: 100px;
+  width: 600px;
+  height: 90px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.wrapper-vac {
-  display: flex;
-  justify-content: space-between;
-}
-
 .vacancy-h {
-  font: 600 24px "Inter";
+  font: 600 24px 'Inter';
   line-height: 24px;
   color: #5e96fc;
 }
@@ -30,7 +35,7 @@
 }
 
 .salary {
-  font: 600 16px "Inter";
+  font: 600 16px 'Inter';
   line-height: 20px;
   color: #232134;
   margin-right: 30px;
@@ -49,16 +54,14 @@
   background-size: contain;
 }
 
-.nosave {
-  display: flex;
-  background-image: url(./assets/nosave.svg);
+.dsave {
+  background-image: url(./assets/dsave.svg);
   background-repeat: no-repeat;
   width: 22px;
   height: 22px;
   background-size: contain;
 }
 .save {
-  display: flex;
   background-image: url(./assets/save.svg);
   background-repeat: no-repeat;
   width: 22px;

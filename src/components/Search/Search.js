@@ -1,27 +1,27 @@
+import React, { useState } from 'react';
 import { Input, Button } from '@mantine/core';
+import style from './style.module.scss';
 import { IconSearch } from '@tabler/icons-react';
-import { useState } from 'react';
 
 function Search({ setSearchString }) {
-    const [input, setInput] = useState('')
+  const [input, setInput] = useState('');
 
-    function showValueInput() {
-        setSearchString(input)
-    }
-
-    return (
-        <>
-            <Input
-                onChange={(event) => setInput(event.target.value)}
-                icon={<IconSearch />}
-                placeholder="Your email"
-                rightSection={
-                    <Button onClick={showValueInput}>Поиск</Button>
-                }
-            />
-
-        </>
-    )
+  return (
+    <div className={style['wrapper']}>
+      <Input
+        size="xl"
+        className={style['search-inp']}
+        icon={<IconSearch />}
+        onChange={(event) => setInput(event.target.value)}
+        placeholder="Your vacancy"
+        rightSection={
+          <Button onClick={() => setSearchString(input)} className={style['search-btn']}>
+            Поиск
+          </Button>
+        }
+      />
+    </div>
+  );
 }
 
-export default Search
+export default Search;

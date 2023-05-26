@@ -1,70 +1,77 @@
 import React, { useState } from 'react';
-import style from './Filters.module.scss';
-import { Select, Button, NativeSelect } from '@mantine/core';
+import style from './style.module.scss';
+import { Input, Button } from '@mantine/core';
 import { IconChevronDown } from '@tabler/icons-react';
-import categoty from '../../storage/category.json';
+import storage from '../../storage/category.json';
 
-function Filters({ setSalaryFilter, setVacancyFilter, setIndustryFilter }) {
-  const [salaryFrom, setSalaryFrom] = useState('');
-  const [salaryTo, setSalaryTo] = useState('');
-  const [vacancy, setVacancy] = useState('');
-  const [industry, setIndustry] = useState('');
+function Filters({ setExpression }) {
+  const [navigation, setNavigation] = useState({ industry: 'default', salaryFrom: '', salaryTo: '' });
 
-  function handleApplyFilters() {
-    const filters = {
-      salaryFrom,
-      salaryTo,
-      vacancy,
-      industry
-    };
+  function changeFiltersState(event) {
+    const { name, value } = event.target;
+    setNavigation((prevNavigation) => ({
+      ...prevNavigation,
+      [name]: value === 'default' ? '' : value,
+    }));
+  }
 
-    setSalaryFilter(filters);
-    setVacancyFilter(vacancy);
-    setIndustryFilter(industry);
+  function setDefault() {
+    setNavigation({ industry: 'default', salaryFrom: '', salaryTo: '' });
+    setExpression({ industry: 'default', salaryFrom: '', salaryTo: '' });
   }
 
   return (
-    <div className={style['wrapper']}>
-      <div className={style['flex']}>
+    <div className={style.wrapper}>
+      <div className={style.flex}>
         <h2>Фильтры</h2>
-        <div className={style['close']}>
-          <p>Сбросить все</p>
-          <div className={style['close-img']}> </div>
-        </div>
+        <p onClick={setDefault}>Сбросить все</p>
       </div>
 
-      <div className={style['industry']}>
+      <div className={style.industry}>
         <h3>Отрасль</h3>
-
-        <NativeSelect
+        <Input
           size="lg"
-          placeholder="Выберете отрасль"
-          data={categoty.map((el) => el.category)}
-          value={industry}
-          onChange={(event) => setIndustry(event.currentTarget.value)}
+          name="industry"
+          component="select"
+          value={navigation.industry}
+          onChange={changeFiltersState}
           rightSection={<IconChevronDown />}
-        />
+        >
+          <option value="default">Выберите отрасль</option>
+          {storage.map((el, index) => (
+            <option key={index} value={el.category}>
+              {el.category}
+            </option>
+          ))}
+        </Input>
       </div>
 
-      <div className={style['salary']}>
+      <div className={style.salary}>
         <h3>Оклад</h3>
-        <div className={style['selectors']}>
-          <Select
-            data={['30000', '40000', '50000', '60000', '70000']}
-            value={salaryFrom}
-            onChange={(value) => setSalaryFrom(value)}
+
+        <div className={style.selectors}>
+          <Input
+            value={navigation.salaryFrom}
+            type="number"
+            size="lg"
+            className={style['search-inp']}
             placeholder="От"
+            name="salaryFrom"
+            onChange={changeFiltersState}
           />
-          <Select
-            data={['30000', '40000', '50000', '60000', '70000']}
-            value={salaryTo}
-            onChange={(value) => setSalaryTo(value)}
+          <Input
+            value={navigation.salaryTo}
+            type="number"
+            size="lg"
+            className={style['search-inp']}
             placeholder="До"
+            name="salaryTo"
+            onChange={changeFiltersState}
           />
         </div>
       </div>
 
-      <Button className={style['btn']} onClick={handleApplyFilters}>
+      <Button onClick={() => setExpression(navigation)} className={style.btn} size="lg">
         Применить
       </Button>
     </div>
