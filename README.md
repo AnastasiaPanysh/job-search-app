@@ -12,7 +12,7 @@ React-FilterBlocks is a project focused on implementing block filtering function
 + Read and display data from a JSON file
 
 ## Installation 
-+ Clone the repository: git clone [https://github.com/AnastasiaPanysh/React-FilterBlocks.git](https://github.com/AnastasiaPanysh/job-search-app.git)
++ Clone the repository: git clone https://github.com/AnastasiaPanysh/job-search-app.git
 + Install dependencies: npm install
 
 ## Usage
